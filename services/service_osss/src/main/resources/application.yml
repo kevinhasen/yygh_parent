@@ -1,0 +1,18 @@
+server: #服务端口
+  port: 8205
+spring:
+  application: #服务名
+    name: service-oss
+  profiles: #环境设置：dev、test、prod
+    active: dev
+  cloud:
+    nacos:
+      discovery: # nacos服务地址
+        server-addr: 127.0.0.1:8848
+#阿里云 OSS自定义配置
+#不同的服务器，地址不同
+aliyun:
+  endpoint: oss-cn-shenzhen.aliyuncs.com
+  keyid: keyid
+  keysecret: keysecret
+  bucketname: leafsir

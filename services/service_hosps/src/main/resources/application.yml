@@ -1,0 +1,42 @@
+mybatis-plus:
+  configuration:  #mybatis日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# 设置日志级别
+server: # 服务端口
+  port: 8201
+spring:
+  redis:
+    host: 192.168.6.100
+    port: 6379
+    database: 0
+    timeout: 1800000
+    lettuce:
+      pool: #最大阻塞等待时间(负数表示没限制)
+        max-active: 20
+        max-wait: -1
+        max-idle: 5
+        min-idle: 0
+  rabbitmq:
+    host: 192.168.6.100
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    nacos: # nacos服务地址
+      discovery:
+        server-addr: 127.0.0.1:8848
+  data:  # mongo
+    mongodb:
+      uri: mongodb://192.168.6.100:27017/test
+  application:   # 服务名
+    name: service-hosp
+  datasource:   # mysql数据库连接
+    driver-class-name: com.mysql.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost:3306/yygh_hosp?characterEncoding=utf-8&useSSL=false
+    username: root
+  jackson:  #返回json的全局时间格式
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  profiles:  # 环境设置：dev、test、prod
+    active: dev

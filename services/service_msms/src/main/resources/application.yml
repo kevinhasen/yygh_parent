@@ -1,0 +1,33 @@
+server:
+  port: 8204
+spring:
+  rabbitmq:
+    host: 192.168.6.100
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    nacos: # nacos服务地址
+      discovery:
+        server-addr: 127.0.0.1:8848
+  application:
+    name: service-msm
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  redis:
+    database: 0
+    host: 192.168.6.100
+    lettuce:
+      pool:
+        max-active: 20
+        max-idle: 5
+        max-wait: -1
+        min-idle: 0
+    port: 6379
+    timeout: 1800000
+aliyunSms:
+  accessKeyId: keyid
+  secret: value
+  SignName: leafsir
+  TemplateCode: SMS_228845488

@@ -1,0 +1,39 @@
+mybatis-plus: #配置mapper xml文件的路径
+#  mapper-locations: classpath:com/yee/yygh/user/mapper/xml/*.xml
+  configuration:  #mybatis日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+server: # 服务端口
+  port: 8160   #和微信回调保持一致
+spring:
+  application: # 服务名
+    name: service-user
+  cloud:
+    nacos:  # nacos服务地址
+      discovery:
+        server-addr: 127.0.0.1:8848
+  datasource:  # mysql数据库连接
+    driver-class-name: com.mysql.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost:3306/yygh_user?characterEncoding=utf-8&useSSL=false
+    username: root
+  jackson:  #返回json的全局时间格式
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  profiles: # 环境设置：dev、test、prod
+    active: dev
+  redis:
+    database: 0
+    host: 192.168.6.100
+    lettuce:
+      pool:
+        max-active: 20
+        max-idle: 5
+        max-wait: -1
+        min-idle: 0
+    port: 6379
+    timeout: 1800000
+wx: #微信扫码登录
+  appId: wxed9954c01bb89b47
+  appSecret: a7482517235173ddb4083788de60b90e
+  redirectUrl: http://localhost:8160/api/ucenter/wx/callback
+
